@@ -35,7 +35,6 @@ namespace Models
         public void ShuffleDeck()
         {
             _deck = _deck.Shuffle();
-            Console.WriteLine("Shuffled deck: " + string.Join(' ', _deck.Select(c => c.Representation)));
         }
 
         public void DealTo(IPlayer first, IPlayer second, IPlayer bank)
