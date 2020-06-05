@@ -9,9 +9,8 @@ namespace Models
     public class Croupier
     {
         private IEnumerable<Card> _deck;
-        private readonly Random _rand;
 
-        public Croupier(Random rand)
+        public Croupier()
         {
             var deck = new List<Card>();
             for (int i = 0; i < 52; i++)
@@ -31,12 +30,12 @@ namespace Models
             }
 
             _deck = deck;
-            _rand = rand;
         }
 
         public void ShuffleDeck()
         {
-            _deck = _deck.Shuffle(_rand);
+            _deck = _deck.Shuffle();
+            Console.WriteLine("Shuffled deck: " + string.Join(' ', _deck.Select(c => c.Representation)));
         }
 
         public void DealTo(IPlayer first, IPlayer second, IPlayer bank)

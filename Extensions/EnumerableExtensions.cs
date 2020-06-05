@@ -14,10 +14,7 @@ namespace Extensions
 
         public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> source, Random rand)
         {
-            lock (rand)
-            {
-                return source?.OrderBy(_ => rand.Next());
-            }
+            return source?.OrderBy(_ => rand.Next());
         }
     }
 }
